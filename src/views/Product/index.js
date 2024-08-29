@@ -1,3 +1,5 @@
+import "./style.css";
+
 export default function ({ prductId }) {
-  return;
+  return <div classNameName="product-card-wrapper"></div>;
 }

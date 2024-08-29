@@ -18,7 +18,7 @@ export default function Products() {
     <div className="products-view-wrapper">
       {error && <Error message={error.message} />}
       {isLoading && <Loading hexColor="#6d6e6d" />}
-      {products && (
+      {false && (
         <>
           <div className="search-row">
             <SearchInput
