@@ -1,3 +1,19 @@
 .product-card-wrapper {
-    margin;
+  margin: 50px;
+  border: 10px solid;
+  height: 500px;
+  padding: 35px;
+  border-radius: 30px;
+  display: flex;
+  background-color: #d9d7d2;
+}
+
+.product-card-wrapper > img {
+  margin-left: -100px;
+}
+
+.product-card-info {
+  height: 100%;
+  width: calc(100% -100px);
+  background-color: red;
 }
