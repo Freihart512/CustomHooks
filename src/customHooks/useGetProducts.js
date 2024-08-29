@@ -4,8 +4,16 @@ import { formatProduct } from "./utils/formatters";
 
 export default function useGetProducts() {
   const [products, setProducts] = useState(null);
-  const [filterText, setFilterText] = useState(null);
+  const [filterText, setFilterText] = useState("");
   const [makeRequest, data, isLoading, error] = useFetch();
+
+  function setFilter(value) {
+    if (typeof value !== "string") {
+      console.error("new Filter value is not a string", value);
+      return;
+    }
+    setFilterText(value);
+  }
 
   useEffect(() => {
     if (!Array.isArray(data)) {
@@ -139,5 +147,5 @@ export default function useGetProducts() {
     ]);
   };
 
-  return [getProducts, products, filterText, setFilterText, isLoading, error];
+  return [getProducts, products, filterText, setFilter, isLoading, error];
 }

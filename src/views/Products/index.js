@@ -16,13 +16,16 @@ export default function Products() {
 
   return (
     <div className="products-view-wrapper">
-      Holaa
       {error && <Error message={error.message} />}
       {isLoading && <Loading hexColor="#6d6e6d" />}
       {products && (
         <>
-          <div class="search-row">
-            <SearchInput />
+          <div className="search-row">
+            <SearchInput
+              color="#bfbfbf"
+              value={filterText}
+              onChange={setFilterText}
+            />
           </div>
           <Table products={products} />
         </>

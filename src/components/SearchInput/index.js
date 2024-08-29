@@ -23,6 +23,10 @@ function SearchIcon() {
 }
 
 export default function SearchInput({ value, onChange, placeholder, color }) {
+  const change = (event) => {
+    console.log("holaa", event);
+    onChange(event.target.value);
+  };
   return (
     <div
       className="search-input-warpper"
@@ -32,7 +36,7 @@ export default function SearchInput({ value, onChange, placeholder, color }) {
       <input
         type="text"
         value={value}
-        onChange={onChange}
+        onChange={change}
         placeholder={placeholder}
       />
     </div>
