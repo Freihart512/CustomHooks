@@ -1,0 +1,13 @@
+.error-wrapper {
+  border: 5px solid #c3c6c9;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.error-wrapper > img {
+  width: 250px;
+}
+
+.error-wrapper > .error-message {
+  font-size: 15px;
+}

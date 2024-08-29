@@ -1,0 +1,32 @@
+import "./style.css";
+import { useEffect } from "react";
+import SearchInput from "../../components/SearchInput";
+import Table from "../../components/Table";
+import useGetProducts from "../../customHooks/useGetProducts";
+import Loading from "../../components/Loading";
+import Error from "../../components/Error";
+
+export default function Products() {
+  const [getProducts, products, filterText, setFilterText, isLoading, error] =
+    useGetProducts();
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  return (
+    <div className="products-view-wrapper">
+      Holaa
+      {error && <Error message={error.message} />}
+      {isLoading && <Loading hexColor="#6d6e6d" />}
+      {products && (
+        <>
+          <div class="search-row">
+            <SearchInput />
+          </div>
+          <Table products={products} />
+        </>
+      )}
+    </div>
+  );
+}

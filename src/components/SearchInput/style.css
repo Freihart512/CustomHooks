@@ -1,0 +1,24 @@
+.search-input-warpper {
+  display: flex;
+  border: 5px solid;
+  border-radius: 50px;
+  padding: 5px;
+  justify-content: start;
+  align-items: center;
+  color: var(--serach-color);
+  gap: 5px;
+}
+
+.search-input-warpper > svg {
+  height: 30px;
+  width: 30px;
+  fill: var(--serach-color);
+}
+
+.search-input-warpper > input {
+  height: 30px;
+  width: calc(100% - 50px);
+  border: none;
+  font: 24px/1.5 system-ui, sans-serif;
+  padding-bottom: 3px;
+}

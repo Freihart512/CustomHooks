@@ -1,0 +1,8 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: white;
+}
+* {
+  font: 24px / 1.5 system-ui, sans-serif;
+}
