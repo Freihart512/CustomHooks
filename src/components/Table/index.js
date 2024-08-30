@@ -1,21 +1,6 @@
 import "./style.css";
 
-function Properties({ properties }) {
-  if (!properties) {
-    return null;
-  }
-  return (
-    <ul>
-      {Object.Keys(properties).map((key) => (
-        <li>
-          {key}: {properties[key]}
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-function Rows({ products }) {
+function Rows({ products, onSelectProduct }) {
   if (products.length < 1) {
     return (
       <tr key="empty-list">
@@ -27,19 +12,23 @@ function Rows({ products }) {
   }
 
   return products.map((p) => (
-    <tr key={p._id}>
+    <tr
+      key={p._id}
+      onClick={() => {
+        console.log("Esta cossaaa", p);
+        onSelectProduct(p);
+      }}
+    >
       <td>
         <strong>{p._id}</strong>
       </td>
       <td>{p.name}</td>
-      <td>
-        <Properties properties={p.properties} />
-      </td>
+      <td>$ {p.price}</td>
     </tr>
   ));
 }
 
-export default function ({ products }) {
+export default function ({ products, onSelectProduct }) {
   if (!Array.isArray(products)) {
     return null;
   }
@@ -50,11 +39,11 @@ export default function ({ products }) {
         <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Properties</th>
+          <th>Price</th>
         </tr>
       </thead>
       <tbody>
-        <Rows products={products} />
+        <Rows products={products} onSelectProduct={onSelectProduct} />
       </tbody>
     </table>
   );

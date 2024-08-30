@@ -4,11 +4,25 @@ import "./styles.css";
 import Product from "./views/Product";
 
 export default function App() {
-  const { view, setView } = useState("products");
+  const [selectedProductId, setSelectedProductId] = useState();
+
+  const onclick = (product) => {
+    console.log("que es esto", product);
+    setSelectedProductId(product._id);
+  };
+
+  console.log("selectedProductId", selectedProductId);
+
   return (
     <div className="App">
       <div style={{ width: "800px", height: "600px" }}>
-        <Product />
+        {!selectedProductId && <Products onSelectProduct={onclick} />}
+        {selectedProductId && (
+          <>
+            <button onClick={() => onclick({})}> back to products</button>
+            <Product productId={selectedProductId} />
+          </>
+        )}
       </div>
     </div>
   );

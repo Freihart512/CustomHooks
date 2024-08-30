@@ -6,9 +6,14 @@ import useGetProducts from "../../customHooks/useGetProducts";
 import Loading from "../../components/Loading";
 import Error from "../../components/Error";
 
-export default function Products() {
+export default function Products({ onSelectProduct }) {
   const [getProducts, products, filterText, setFilterText, isLoading, error] =
     useGetProducts();
+    
+  const selectProduct = (p) => {
+    console.log("en el products", p);
+    onSelectProduct(p);
+  };
 
   useEffect(() => {
     getProducts();
@@ -18,7 +23,7 @@ export default function Products() {
     <div className="products-view-wrapper">
       {error && <Error message={error.message} />}
       {isLoading && <Loading hexColor="#6d6e6d" />}
-      {false && (
+      {products && (
         <>
           <div className="search-row">
             <SearchInput
@@ -27,7 +32,7 @@ export default function Products() {
               onChange={setFilterText}
             />
           </div>
-          <Table products={products} />
+          <Table products={products} onSelectProduct={selectProduct} />
         </>
       )}
     </div>

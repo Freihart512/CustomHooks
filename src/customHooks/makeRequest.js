@@ -12,7 +12,7 @@ export default function useFetch() {
 
     try {
       const response = await fetch(url, config);
-      const { data } = await response.json();
+      const data = await response.json();
       setData(data);
     } catch (err) {
       console.log(err);
@@ -22,5 +22,5 @@ export default function useFetch() {
     }
   };
 
-  return [makeRequest, data, error, isLoading];
+  return [makeRequest, data, isLoading, error];
 }

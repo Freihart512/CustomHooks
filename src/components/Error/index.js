@@ -1,5 +1,6 @@
 import "./style.css";
-export default function ({ message }) {
+
+export default function Error({ message }) {
   return (
     <div className="error-wrapper">
       <h1>Sorry...</h1>
