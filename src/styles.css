@@ -6,3 +6,13 @@
 * {
   font: 24px / 1.5 system-ui, sans-serif;
 }
+
+.back-button {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #d9d7d2;
+}
+
+.back-button:hover {
+  background-color: #d9d7d2;
+}

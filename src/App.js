@@ -7,7 +7,6 @@ export default function App() {
   const [selectedProductId, setSelectedProductId] = useState();
 
   const onclick = (product) => {
-    console.log("que es esto", product);
     setSelectedProductId(product._id);
   };
 
@@ -19,7 +18,10 @@ export default function App() {
         {!selectedProductId && <Products onSelectProduct={onclick} />}
         {selectedProductId && (
           <>
-            <button onClick={() => onclick({})}> back to products</button>
+            <button className="back-button" onClick={() => onclick({})}>
+              {" "}
+              back to products
+            </button>
             <Product productId={selectedProductId} />
           </>
         )}
